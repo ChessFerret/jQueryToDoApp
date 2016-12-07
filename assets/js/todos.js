@@ -15,8 +15,16 @@ $("ul").on("click", "span", function(event) {
 $("input[type='text']").keypress(function(event) {
 	if (event.which === 13) {
 		var task = $(this).val();
-		$(this).val("");
-		//create new li, add it to ul
-		$("ul").append("<li><span><i class='fa fa-trash' aria-hidden='true'></i></span> " + task + "</li>");
+		if (task !== "") {
+			$(this).val("");
+			//create new li, add it to ul
+			$("ul").append("<li><span><i class='fa fa-trash' aria-hidden='true'></i></span> " + task + "</li>");	
+		}
+		
 	}
-}); 
+});
+
+//Plus clicking
+$(".fa-plus").click(function() {
+	$("input[type='text']").fadeToggle();
+});
