@@ -17,6 +17,6 @@ $("input[type='text']").keypress(function(event) {
 		var task = $(this).val();
 		$(this).val("");
 		//create new li, add it to ul
-		$("ul").append("<li><span>X</span> " + task + "</li>");
+		$("ul").append("<li><span><i class='fa fa-trash' aria-hidden='true'></i></span> " + task + "</li>");
 	}
 }); 
