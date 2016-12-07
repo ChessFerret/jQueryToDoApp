@@ -1,12 +1,22 @@
 // Mark (on/off) completed task
-$("li").click(function() {
+$("ul").on("click", "li", function() {
 	$(this).toggleClass("completed");
 });
 
 //Click on X to delete task
-$("span").click(function(event) {
+$("ul").on("click", "span", function(event) {
 	$(this).parent().fadeOut(500, function() {
 		$(this).remove();
 	})
 	event.stopPropagation();
 });
+
+//Add new task
+$("input[type='text']").keypress(function(event) {
+	if (event.which === 13) {
+		var task = $(this).val();
+		$(this).val("");
+		//create new li, add it to ul
+		$("ul").append("<li><span>X</span> " + task + "</li>");
+	}
+}); 
